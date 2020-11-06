@@ -3,13 +3,17 @@ const { Sequelize, Model } = require('sequelize');
 
 class User extends Model {}
 
-User.init({
-	id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true
+User.init(
+	{
+		id: {
+			type: Sequelize.INTEGER,
+			primaryKey: true,
+			autoIncrement: true
+		},
+        nickname: Sequelize.STRING,
+        password: Sequelize.STRING
 	},
-	nickname: Sequelize.STRING
-},{sequelize:db});
+	{ sequelize: db, tableName: 'usersss' }
+);
 
 module.exports = User;
