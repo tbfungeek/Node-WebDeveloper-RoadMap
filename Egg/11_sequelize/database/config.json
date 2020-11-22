@@ -2,21 +2,21 @@
   "development": {
     "username": "linxiaohai",
     "password": "Aa123456",
-    "database": "egg-sequelize-example-dev",
+    "database": "eggss",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "linxiaohai",
     "password": "Aa123456",
-    "database": "egg-sequelize-example-dev",
+    "database": "eggss",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "linxiaohai",
     "password": "Aa123456",
-    "database": "egg-sequelize-example-dev",
+    "database": "eggss",
     "host": "localhost",
     "dialect": "mysql"
   }
