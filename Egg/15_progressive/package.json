@@ -1,5 +1,5 @@
 {
-  "name": "01_view-nunjuncks",
+  "name": "15_progressive",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -8,9 +8,7 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
-    "egg-scripts": "^2.11.0",
-    "egg-validate": "^2.0.2",
-    "egg-view-nunjucks": "^2.2.0"
+    "egg-scripts": "^2.11.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -25,8 +23,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-01_view-nunjuncks",
-    "stop": "egg-scripts stop --title=egg-server-01_view-nunjuncks",
+    "start": "egg-scripts start --title=egg-server-15_progressive",
+    "stop": "egg-scripts stop --title=egg-server-15_progressive",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",

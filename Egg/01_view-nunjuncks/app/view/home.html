@@ -3,7 +3,8 @@
 {% block body %}
 
 <div class="jumbotron">
-  <h2>egg view example here, welcome {{ user.name }}</h2>
+  <!--变量-->
+  <h2>egg view example here, welcome {{ user.name | replace("bar","foo") | capitalize }}</h2>
 </div>
 
 {% endblock %}

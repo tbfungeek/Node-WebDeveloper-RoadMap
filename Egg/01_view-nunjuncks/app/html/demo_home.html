@@ -1,0 +1,64 @@
+{% extends 'demo_layout.html' %}
+
+{# {% include 'templte.html' ignore missing %} #}
+
+{#{% import "forms.html" as forms %}#}
+{#{{ forms.label('Username') }}#}
+{#{{ forms.field('user') }}#}
+{#{{ forms.label('Password') }}#}
+{#{{ forms.field('pass', type='password') }} #}
+
+
+{% macro field(name, value='', type='text') %}
+<div class="field">
+  <input type="{{ type }}" name="{{ name }}"
+         value="{{ value | escape }}" />
+</div>
+{% endmacro %}
+
+{% block body %}
+
+    {{ super() }}
+
+    <div class = "jumbotron">
+
+        {% if islogin %}
+            <h1>Welcome {{ user.name | capitalize }} !</h1>
+        {% else %}
+            <button>登陆</button>
+        {% endif %}
+
+        <ul>
+        {% for item in articals %}
+            <li> {{item.title}}</li>
+        {% else %}
+            <li> 数据为空 </li>
+        {% endfor %}
+
+        </ul>
+
+        <ul>    
+        {% for ingredient, amount in food %}
+           <li> {{loop.index}} - {{loop.index0}} - {{loop.length}} Use {{ amount }} of {{ ingredient }}</li>
+        {% endfor %}
+        </ul>
+
+       {{ field('pass', type='password') }}
+
+       {{ name }}
+        {% set name = "joe" %}
+        {% set x, y, z = 5 %}
+        {{ name }}
+
+    </div>
+
+    {% filter replace("force", "forth") %}
+        may the force be with you
+    {% endfilter %}
+
+    {% for i in [1,2,3,4,5] -%}
+        {{ i }}
+    {%- endfor %}
+
+{% endblock body %}
+

@@ -2,6 +2,8 @@
 
 "use strict";
 
+const path = require('path');
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -19,11 +21,36 @@ module.exports = appInfo => {
   config.middleware = [];
   
   config.view = {
-    defaultViewEngine: "nunjucks"
+    mapping: {
+      '.njk': 'nunjucks',
+    },
+    defaultViewEngine: "nunjucks",
+    root: [
+      path.join(appInfo.baseDir,'app/view'),
+      path.join(appInfo.baseDir,'app/html'),
+    ].join(',')
   };
 
   config.nunjucks = {
     cache: true
+  };
+
+  config.static = {
+    prefix: "/assets/",
+    dir: path.join(appInfo.baseDir, "app/assets")
+  };
+
+  config.security = {
+    csrf:{
+      enable:false
+    }
+  };
+
+  config.session = {
+    key: "PRIVATE_SESS",
+    httpOnly: true,
+    maxAge: 1000 * 50,
+    renew: true
   };
 
   // add your user config here
