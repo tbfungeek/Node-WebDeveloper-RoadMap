@@ -16,10 +16,10 @@ module.exports = appInfo => {
   config.keys = appInfo.name + "_1607422051287_620";
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['auth'];
 
   config.auth = {
-    excludes: [ 'home', '/user', '/login', '/logout' ],
+    excludes: [ '/home', '/user', '/login', '/logout' ],
   };
 
   // add your user config here
