@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const path = require("path");
+const path = require('path');
 
 /** @type Egg.EggPlugin */
 module.exports = {
@@ -8,14 +8,15 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
+
+  auth: {
+    enable: true,
+    path: path.join(__dirname, '../lib/plugin/egg-auth'),
+  },
+
+  info: {
+    enable: true,
+    path: path.join(__dirname, '../lib/plugin/egg-info'),
+  },
+
 };
-
-exports.auth = {
-  enable: true,
-  path: path.join(__dirname, "../lib/plugin/egg-auth")
-},
-
-exports.info = {
-  enable: true,
-  package: path.join(__dirname, "../lib/plugin/egg-info")
-}
