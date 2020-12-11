@@ -13,7 +13,8 @@ class HomeService extends Service {
             const {
                 app
             } = this;
-            const res = await app.mysql.insert('user', params);
+            const res = await app.model.User.create(params);
+            //const res = await app.mysql.insert('user', params);
             return res;
         } catch (error) {
             console.log(error);
@@ -26,9 +27,14 @@ class HomeService extends Service {
             const {
                 app
             } = this;
-            const res = await app.mysql.delete('user', {
-                id
-            });
+            const user = await app.model.User.findByPk(id);
+            if (!user) {
+                return null;
+            }
+            const res = user.destroy(id);
+            //const res = await app.mysql.delete('user', {
+            //    id
+            //});
             return res;
         } catch (error) {
             console.log(error);
@@ -41,7 +47,13 @@ class HomeService extends Service {
             const {
                 app
             } = this;
-            const res = await app.mysql.update('user', params);
+
+            const user = await app.model.User.findByPk(id);
+            if (!user) {
+                return null;
+            }
+            const res = user.update(id);
+            //const res = await app.mysql.update('user', params);
             return res;
         } catch (error) {
             console.log(error);
@@ -69,9 +81,11 @@ class HomeService extends Service {
             const {
                 app
             } = this;
+            const res = await app.model.User.findByPk(id);
+            /*
             const res = await app.mysql.get('user', {
                 id
-            });
+            });*/
             return res;
         } catch (error) {
             console.log(error);
