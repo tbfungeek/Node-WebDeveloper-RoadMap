@@ -55,7 +55,8 @@ class HomeService extends Service {
             const {
                 app
             } = this;
-            const res = await app.mysql.select('user');
+            //const res = await app.mysql.select('user');
+            const res = await app.model.User.findAll();
             return res;
         } catch (error) {
             console.log(error);
